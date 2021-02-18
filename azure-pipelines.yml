@@ -26,5 +26,5 @@ steps:
     resourceGroupName: 'bharathi-cn-dep'
     location: 'East US 2'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://github.com/bharthi31/citrix-adc-azure-templates/tree/master/templates/high_availability/availability_set/public_vip/1nic'
+    csmFileLink: 'https://raw.githubusercontent.com/citrix/citrix-adc-azure-templates/master/templates/high_availability/availability_set/public_vip/1nic/mainTemplate.json'
     deploymentMode: 'Incremental'
