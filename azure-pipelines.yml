@@ -4,27 +4,27 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- main
 
-pool:
-  vmImage: ubuntu-default
+variables:
+  vmImageName: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'bharathi-sp-devops'
-    subscriptionId: '23b03d6f-b164-4527-9acd-595d97060283'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'bharathi-cn-dep'
-    location: 'East US 2'
-    templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/citrix/citrix-adc-azure-templates/master/templates/high_availability/availability_set/public_vip/1nic/mainTemplate.json'
-    deploymentMode: 'Incremental'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: BuildJob
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'bharathi-sp-devops'
+        subscriptionId: '23b03d6f-b164-4527-9acd-595d97060283'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'bharathi-cn-dep'
+        location: 'East US 2'
+        templateLocation: 'URL of the file'
+        csmFileLink: 'https://raw.githubusercontent.com/citrix/citrix-adc-azure-templates/master/templates/high_availability/availability_set/public_vip/1nic/mainTemplate.json'
+        deploymentMode: 'Incremental'
