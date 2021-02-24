@@ -23,7 +23,7 @@ stages:
         azureResourceManagerConnection: 'bharathi-sp-devops'
         subscriptionId: '23b03d6f-b164-4527-9acd-595d97060283'
         action: 'Create Or Update Resource Group'
-        resourceGroupName: 'bharathi-cn-dep'
+        resourceGroupName: 'bharathi-cn-dep123'
         location: 'East US 2'
         templateLocation: 'URL of the file'
         csmFileLink: 'https://raw.githubusercontent.com/citrix/citrix-adc-azure-templates/master/templates/high_availability/availability_set/public_vip/3nic/mainTemplate.json'
