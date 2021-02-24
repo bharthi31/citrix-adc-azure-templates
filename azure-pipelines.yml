@@ -27,5 +27,5 @@ stages:
         location: 'East US 2'
         templateLocation: 'URL of the file'
         csmFileLink: 'https://raw.githubusercontent.com/citrix/citrix-adc-azure-templates/master/templates/high_availability/availability_set/public_vip/3nic/mainTemplate.json'
-        overrideParameters: '-adminUsername nsroot -adminPassword nsroot@123'
+        overrideParameters: '-adminUsername nsroot -adminPassword nsroot@123 -vnetNewOrExisting existing '
         deploymentMode: 'Incremental'
